@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Accord.Audio" Version="3.8.0" />
+        <PackageReference Include="Accord.MachineLearning" Version="3.8.0" />
+        <PackageReference Include="Accord.Math" Version="3.8.0" />
+        <PackageReference Include="Accord.Statistics" Version="3.8.0" />
+        <PackageReference Include="AForge.Math" Version="2.2.5" />
+        <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.7"/>
+        <PackageReference Include="NAudio" Version="2.2.1" />
+        <PackageReference Include="NWaves" Version="0.9.6" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <PackageReference Include="System.Drawing.Common" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="*.wav">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="*.bin">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <Content Include="bin\Debug\net8.0\other10_record10.wav" />
+      <Content Include="bin\Debug\net8.0\other3_record3.wav" />
+      <Content Include="bin\Debug\net8.0\other4_record4.wav" />
+      <Content Include="bin\Debug\net8.0\other5_record5.wav" />
+      <Content Include="bin\Debug\net8.0\other6_record6.wav" />
+      <Content Include="bin\Debug\net8.0\other7_record7.wav" />
+      <Content Include="bin\Debug\net8.0\other8_record8.wav" />
+      <Content Include="bin\Debug\net8.0\other9_record9.wav" />
+      <Content Include="bin\Debug\net8.0\other_record.wav" />
+      <Content Include="bin\Debug\net8.0\test2_user1.wav" />
+      <Content Include="bin\Debug\net8.0\test3_user1.wav" />
+      <Content Include="bin\Debug\net8.0\test_user1.wav" />
+      <Content Include="bin\Debug\net8.0\user1_record3.wav" />
+      <Content Include="bin\Debug\net8.0\user1_record4.wav" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="bin\Debug\net8.0\other1_record1.wav" />
+      <None Include="bin\Debug\net8.0\other2_record2.wav" />
+      <None Include="bin\Debug\net8.0\user1_record1.wav" />
+      <None Include="bin\Debug\net8.0\user1_record2.wav" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="bin\Debug\net8.0\" />
+    </ItemGroup>
+
+</Project>

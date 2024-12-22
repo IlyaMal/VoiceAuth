@@ -1,0 +1,47 @@
+﻿@startuml
+
+class AuthController {
+    +VoiceBLL _voiceBll
+    +string storedTemplatePath
+    +RegisterUserVoice() : Task<IActionResult>
+    +AuthenticateUserVoice(voiceFile: IFormFile) : Task<IActionResult>
+    +GetFeaturesFromVoice(voiceFile: IFormFile) : Task<IActionResult>
+    +PrepareAudio() : Task<IActionResult>
+}
+
+class VoiceBLL {
+    +SaveAudio(outputPath: string, signal: float[], sampleRate: int)
+    +RemoveSilentRegions(signal: float[], regions: List<int[]]) : float[]
+    +DetectNonSilentRegions(signal: float[], sampleRate: int, silenceThreshold: float) : List<int[]>
+    +LoadAudio(filePath: string, out sampleRate: int) : float[]
+    +SaveModel(svm: SupportVectorMachine<Gaussian>, modelFilePath: string)
+    +TrainAndSaveModel(userFiles: string[], otherFiles: string[], modelFilePath: string)
+    +TrainUserModel(userFiles: string[], otherFiles: string[]) : (SupportVectorMachine<Gaussian>, double, ConfusionMatrix)
+    +VerifyVoiceByVoice(audioFilePath: string, modelFilePath: string) : List<double>
+    +ExtractVoiceFeatures(audioFilePath: string) : float[]
+    +TrimSilence(samples:float[] , threshold = 0.02f:float ) : float[]
+    +CalculateAggregatedFeatures(features: List<float[]> ) : (float[] mean, float[] variance, float[] min, float[] max) 
+    +ConcatenateFeatures(float[] mean, float[] variance, float[] min, float[] max) : float[]
+    +SelectFeaturesByVariance(data : List<float[]>, threshold = 0.9f : float) : List<float[]> 
+    
+}
+
+class VoiceDetector {
+    +ContainsVoice(filePath: string) : bool
+}
+
+class Accuracy{
+    +  Calculate(trueLabels: int[], predictedLabels: int[]) : double
+}
+class ConfusionMatrix{
+    +  ConfusionMatrix(trueLabels: int[] , predictedLabels: int[] )
+    + ToString(): string
+}
+
+
+AuthController --> VoiceBLL
+VoiceBLL --> VoiceDetector
+VoiceBLL --> Accuracy
+VoiceBLL --> ConfusionMatrix
+
+@enduml

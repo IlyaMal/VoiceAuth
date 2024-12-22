@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "W5aIuE7pjT615dmG2hjDJMpgO0lSikPVPxp8JKdxlSA=",
+  "Source": "VoiceAuth",
+  "BasePath": "_content/VoiceAuth",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

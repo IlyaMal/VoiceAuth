@@ -1,0 +1,6 @@
+﻿services:
+  voiceauth:
+    image: voiceauth
+    build:
+      context: .
+      dockerfile: VoiceAuth/Dockerfile
